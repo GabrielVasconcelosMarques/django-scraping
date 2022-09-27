@@ -15,6 +15,7 @@ def get_html_content(produto):
 
 def home(request):
     #lista_nome_produtos = None
+    
     lista_nome = None
     lista_img = None
     lista_preco = None
@@ -38,8 +39,9 @@ def home(request):
         texto_do_script = script.string
 
         retorno_json = json.loads(texto_do_script)
-        with open('json1.json', 'w', encoding="utf-8") as f:
-            f.write(str(texto_do_script))
+
+        #with open('json1.json', 'w', encoding="utf-8") as f:
+        #    f.write(str(texto_do_script))
 
         lista_preco = []
         lista_tarja = []
@@ -47,48 +49,50 @@ def home(request):
         lista_img = []
         lista_conjunta = []
 
-        for c in retorno_json['props']['pageProps']['initialData']['products']:
-            #print(c['name'], c['price'], c['image'], c['descriptionStripe'])
-            #print("\n")
-            lista_nome.append(c['name'])
-            lista_img.append(c['image'])
-            lista_preco.append(c['price'])
-            if c['descriptionStripe'] != None:
-                lista_tarja.append(c['descriptionStripe'])
-            else:
-                lista_tarja.append('PRODUTO SEM TARJA')
+        if 'products' in retorno_json['props']['pageProps']['initialData']:
 
-        
+            for c in retorno_json['props']['pageProps']['initialData']['products']:
+                #print(c['name'], c['price'], c['image'], c['descriptionStripe'])
+                #print("\n")
+                lista_nome.append(c['name'])
+                lista_img.append(c['image'])
+                lista_preco.append(c['price'])
+                if c['descriptionStripe'] != None:
+                    lista_tarja.append(c['descriptionStripe'])
+                else:
+                    lista_tarja.append('PRODUTO SEM TARJA')
 
-        # Pega o conteúdo(string) da tag script encontrada
-        
-        #with open('arquivo.txt', 'w', encoding="utf-8") as f:
-        #    f.write(str(html_content))
-        #for elemento in nome:
-        #    lista_nome_produtos.append(elemento.text)
-            #print(elemento)
-            #print("\n")
-
-        '''
-        for i in imagem:
-            #print(i['src']) # pegando src das imagens
-            #print(i['alt'])
-            #print("\n")
-            if i['alt'] not in lista_nome:
-                lista_nome.append(i['alt'])
             
-            if 'data:image' not in i['src']:
-                lista_img.append(i['src'])
+
+            # Pega o conteúdo(string) da tag script encontrada
+            
+            #with open('arquivo.txt', 'w', encoding="utf-8") as f:
+            #    f.write(str(html_content))
+            #for elemento in nome:
+            #    lista_nome_produtos.append(elemento.text)
+                #print(elemento)
+                #print("\n")
+
+            '''
+            for i in imagem:
+                #print(i['src']) # pegando src das imagens
+                #print(i['alt'])
+                #print("\n")
+                if i['alt'] not in lista_nome:
+                    lista_nome.append(i['alt'])
+                
+                if 'data:image' not in i['src']:
+                    lista_img.append(i['src'])
 
 
-        print("lista nome tamanho: ", len(lista_nome))
-        print("lista ing tamanho: ", len(lista_img))
-        '''
+            print("lista nome tamanho: ", len(lista_nome))
+            print("lista ing tamanho: ", len(lista_img))
+            '''
 
-        for c in range(len(lista_nome)):
-            lista_conjunta.append([lista_nome[c], lista_img[c], lista_preco[c], lista_tarja[c]])
+            for c in range(len(lista_nome)):
+                lista_conjunta.append([lista_nome[c], lista_img[c], lista_preco[c], lista_tarja[c]])
 
-        print(lista_conjunta)
+            #print(lista_conjunta)
           
             
 
