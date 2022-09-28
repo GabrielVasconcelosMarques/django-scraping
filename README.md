@@ -4,7 +4,7 @@
 
 ## Sobre
 - Aplicação desenvolvida para pegar a entrada do usuário, e baseado nela, ir até o site da [Drogasil](https://www.drogasil.com.br) e trazer os resultados da primeira página, relacionado ao que o usuário solicitou
-- Esta aplicação foi desenvolvida utilizando o ambiente virtual do python, o framework django e a biblioteca beautifulsoup
+- Esta aplicação foi desenvolvida utilizando o ambiente virtual do python, o framework ```django```, a biblioteca ```beautifulsoup``` e a biblioteca ```requests```
 - Desenvolvida no sistema operacional windows
 
 
@@ -17,7 +17,7 @@ Após ter feito o clone do projeto, abra a pasta do projeto na IDE de sua escolh
 - Caso esteja no windows: ```.\venv\Scripts\activate```, caso apresente algum erro nessa ativação, no windows, digite o comando ```Set-ExecutionPolicy -Scope CurrentUser -ExecutionPolicy RemoteSigned``` e após isso, digite novamente o comando ```.\venv\Scripts\activate```
 - Caso esteja no linux: ```source bin/activate```
 - Após rodar o comando acima, você deverá instalar as bibliotecas que foram utilizadas para essa aplicação, elas estão descritas no arquivo requirements.txt deste repositório. Para instalá-los, você deverá utilizar o comando ```pip install -r requirements.txt```
-- Se por alguma razão o comando acima não funcionar, dentro do seu ambiente, você digita os comandos de instalação ```pip install django``` e ```pip install beautifulsoup4```
+- Se por alguma razão o comando acima não funcionar, dentro do seu ambiente, você digita os comandos de instalação ```pip install django```, ```pip install beautifulsoup4``` e ```pip install requests```
 
 Agora, para executar a aplicação:
 - Na pasta raiz do projeto, pela sua IDE, digite o comando ```python .\manage.py runserver```, caso esteja no windows
